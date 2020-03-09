@@ -1,0 +1,10 @@
+.mr-auto.navbar-brand {
+  display: block;
+  margin: auto;
+}
+
+.mr-2.navbar-toggler {
+  position: absolute;
+  right: 1vh;
+  top: 1vh;
+}

@@ -1,0 +1,360 @@
+{
+    "nodes": [
+        {
+            "id": "f0",
+            "name": "Zuluaga Martinez Family",
+            "gender": "none"
+        },
+        {
+            "id": "f1",
+            "name": "Benito Zuluaga",
+            "gender": "male",
+            "birthyear": 1963,
+            "occupation": "Laborer"
+        },
+        {
+            "id": "f2",
+            "name": "Maria De Jesus Zuluaga",
+            "gender": "female",
+            "birthyear": 1964,
+            "occupation": "Housekeeper"
+        },
+        {
+            "id": "f3",
+            "name": "Anthony Zuluaga",
+            "gender": "male",
+            "birthyear": 1993,
+            "occupation": "Developer"
+        },
+        {
+            "id": "f4",
+            "name": "Jessica Zuluaga",
+            "gender": "female",
+            "birthyear": 1997,
+            "occupation": "Behavior Technician"
+        },
+        {
+            "id": "f5",
+            "name": "Zuluaga Eloisa Family",
+            "gender": "none"
+        },
+        {
+            "id": "f6",
+            "name": "Juan Zuluaga",
+            "gender": "male",
+            "birthyear": 1935,
+            "occupation": "Retired"
+        },
+        {
+            "id": "f7",
+            "name": "Celsa Eloisa",
+            "gender": "female",
+            "birthyear": 1938,
+            "occupation": "Diseased",
+            "deathyear": 2012
+        },
+        {
+            "id": "f8",
+            "name": "Angel Zuluaga",
+            "gender": "male",
+            "birthyear": 1977,
+            "occupation": "Security"
+        },
+        {
+            "id": "f9",
+            "name": "Maribel Zuluaga",
+            "gender": "female",
+            "birthyear": 1975,
+            "occupation": "Housewife"
+        },
+        {
+            "id": "f10",
+            "name": "Reymundo Zuluaga",
+            "gender": "male",
+            "birthyear": 1966,
+            "occupation": "Cook"
+        },
+        {
+            "id": "f11",
+            "name": "Jorge Zuluaga",
+            "gender": "male",
+            "birthyear": 1971,
+            "occupation": "Musician"
+        },
+        {
+            "id": "f12",
+            "name": "Orfelina Zuluaga",
+            "gender": "female",
+            "birthyear": 1961,
+            "occupation": "Housekeeper"
+        },
+        {
+            "id": "f13",
+            "name": "Celia Zuluaga",
+            "gender": "female",
+            "birthyear": 1956,
+            "occupation": "Laborer"
+        },
+        {
+            "id": "f14",
+            "name": "Felipe Zuluaga",
+            "gender": "male",
+            "birthyear": 1958,
+            "occupation": "Laborer"
+        },
+        {
+            "id": "f15",
+            "name": "Hortencia Zuluaga",
+            "gender": "female",
+            "birthyear": 1968,
+            "occupation": "Housewife"
+        },
+        {
+            "id": "f16",
+            "name": "Sonia Zuluaga",
+            "gender": "female",
+            "birthyear": 1973,
+            "occupation": "Housewife"
+        },
+        {
+            "id": "f17",
+            "name": "Martinez Cervantes Family",
+            "gender": "none"
+        },
+        {
+            "id": "f18",
+            "name": "Belen Martinez",
+            "gender": "male",
+            "birthyear": 1937,
+            "occupation": "Diseased",
+            "deathyear": 1995
+        },
+        {
+            "id": "f19",
+            "name": "Antonia Cervantes",
+            "gender": "female",
+            "birthyear": 1940,
+            "occupation": "Retired"
+        },
+        {
+            "id": "f20",
+            "name": "Flor Martinez",
+            "gender": "female",
+            "birthyear": 1956,
+            "occupation": "Teacher"
+        },
+        {
+            "id": "f21",
+            "name": "Leoncio Martinez",
+            "gender": "male",
+            "birthyear": 1958,
+            "occupation": "Businessman"
+        },
+        {
+            "id": "f22",
+            "name": "Fausta Martinez",
+            "gender": "female",
+            "birthyear": 1961,
+            "occupation": "Housewife"
+        },
+        {
+            "id": "f23",
+            "name": "Filiberto Martinez",
+            "gender": "male",
+            "birthyear": 1970,
+            "occupation": "Laborer"
+        },
+        {
+            "id": "f24",
+            "name": "Maricela Tanner",
+            "gender": "female",
+            "birthyear": 1972,
+            "occupation": "Advisor"
+        },
+        {
+            "id": "f25",
+            "name": "Maria Eufemia Martinez",
+            "gender": "female",
+            "birthyear": 1974,
+            "occupation": "Housekeeper"
+        },
+        {
+            "id": "f26",
+            "name": "Columbia Martinez",
+            "gender": "female",
+            "birthyear": 1978,
+            "occupation": "Teacher"
+        },
+        {
+            "id": "f27",
+            "name": "Maria Gaudalupe Martinez",
+            "gender": "female",
+            "birthyear": 1980,
+            "occupation": "Advisor"
+        }
+    ],
+    "links": [
+        {
+            "source": 0,
+            "target": 1,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 0,
+            "target": 2,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 0,
+            "target": 3,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 0,
+            "target": 4,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 6,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 5,
+            "target": 7,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 5,
+            "target": 1,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 18,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 17,
+            "target": 19,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 17,
+            "target": 2,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 8,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 9,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 10,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 11,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 12,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 13,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 14,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 15,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 5,
+            "target": 16,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 20,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 21,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 22,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 23,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 24,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 25,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 26,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 17,
+            "target": 27,
+            "value": 1,
+            "color": "black"
+        }
+    ]
+}

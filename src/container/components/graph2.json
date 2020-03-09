@@ -1,0 +1,180 @@
+{
+    "nodes": [
+        {
+            "id": "f0",
+            "name": "Dunham Payne Family",
+            "gender": "none"
+        },
+        {
+            "id": "f1",
+            "name": "Obama Dunham Family",
+            "gender": "none"
+        },
+        {
+            "id": "f2",
+            "name": "Obama Lavuaghn Family",
+            "gender": "none"
+        },
+        {
+            "id": "f3",
+            "name": "Obama Family",
+            "gender": "none"
+        },
+        {
+            "id": "f4",
+            "name": "Stanley Armour Dunham",
+            "gender": "male",
+            "birthyear": 1918,
+            "occupation": "Sergeant",
+            "deathyear": 1992
+        },
+        {
+            "id": "f5",
+            "name": "Madelyn Lee Payne Dunham",
+            "gender": "female",
+            "birthyear": 1922,
+            "occupation": "Vice President at the Bank of Hawaii",
+            "deathyear": 2008
+        },
+        {
+            "id": "f6",
+            "name": "Stanley Ann Dunham",
+            "gender": "female",
+            "birthyear": 1942,
+            "occupation": "Anthropologist",
+            "deathyear": 1995
+        },
+        {
+            "id": "f7",
+            "name": "Barack Hussein Obama Sr.",
+            "gender": "male",
+            "birthyear": 1936,
+            "occupation": "Economist",
+            "deathyear": 1982
+        },
+        {
+            "id": "f8",
+            "name": "Barack Hussein Obama",
+            "gender": "male",
+            "birthyear": 1961,
+            "occupation": "Former POTUS"
+        },
+        {
+            "id": "f9",
+            "name": "Michelle Lavaughn Robinson Obama",
+            "gender": "female",
+            "birthyear": 1964,
+            "occupation": "Former FLOTUS"
+        },
+        {
+            "id": "f10",
+            "name": "Malia Ann Obama",
+            "gender": "female",
+            "birthyear": 1998,
+            "occupation": "Student"
+        },
+        {
+            "id": "f11",
+            "name": "Natasha (Sasha) Obama",
+            "gender": "female",
+            "birthyear": 2001,
+            "occupation": "Student"
+        },
+        {
+            "id": "f12",
+            "name": "Hussein Onyango Obama",
+            "gender": "male",
+            "birthyear": 1895,
+            "occupation": "Mission Cook",
+            "deathyear": 1979
+        },
+        {
+            "id": "f13",
+            "name": "Habiba Akkumu Obama (Nyanjoga)",
+            "gender": "female",
+            "birthyear": 1918,
+            "occupation": "Strong Mother",
+            "deathyear": 2006
+        }
+    ],
+    "links": [
+        {
+            "source": 0,
+            "target": 4,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 0,
+            "target": 5,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 0,
+            "target": 6,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 3,
+            "target": 7,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 2,
+            "target": 8,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 2,
+            "target": 9,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 2,
+            "target": 10,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 2,
+            "target": 11,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 1,
+            "target": 6,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 1,
+            "target": 7,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 1,
+            "target": 8,
+            "value": 1,
+            "color": "black"
+        },
+        {
+            "source": 3,
+            "target": 12,
+            "value": 5,
+            "color": "yellow"
+        },
+        {
+            "source": 3,
+            "target": 13,
+            "value": 5,
+            "color": "yellow"
+        }
+    ]
+}
