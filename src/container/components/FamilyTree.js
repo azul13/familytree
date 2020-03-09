@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
-import graph from './graph2'
+import graph from './obamatree'
 import './FamilyTree.css';
 
 export default() =>  {
