@@ -30,7 +30,7 @@ export default class DeleteBox extends React.Component {
   }
 
   submitAdd(e) {
-    if (this.state.Name === '' || this.state.password === '') {
+    if (this.state.name === '') {
       this.showValidationErr('error', 'Name does not exist, please try again.');
     }
 
@@ -66,7 +66,6 @@ export default class DeleteBox extends React.Component {
                 /> 
             </span>
             <small className="danger-error">{error} </small>
-            <br className="tiny-divider"/>
           </div>
 
 

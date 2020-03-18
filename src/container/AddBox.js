@@ -1,11 +1,14 @@
 import React from 'react';
+import {Form, FormGroup, Input, Label, Button, ButtonGroup} from 'reactstrap';
 import axios from 'axios';
 
 export default class AddBox extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: '', birthyear: '', deathyear: '', occupation: '', gender: '', errors: [] };
+    this.state = { name: '', birthyear: '', deathyear: '', occupation: '', gender: '', errors: [] , options: [
+      'Option 1', 'Option 2', 'Option 3', 'Option 4'
+    ], rSelected: ''};
   }
 
   showValidationErr(elm, msg) {
@@ -27,6 +30,7 @@ export default class AddBox extends React.Component {
   onNameChange(e) {
     this.setState({ name: e.target.value });
     this.clearValidationErr('name');
+    console.log(e.target.value);
   }
 
   onBirthYearChange(e) {
@@ -42,11 +46,13 @@ export default class AddBox extends React.Component {
   onOccupationChange(e) {
     this.setState({ occupation: e.target.value });
     this.clearValidationErr('occupation');
+    console.log(e.target.value);
   }
 
   onGenderChange(e) {
     this.setState({ gender: e.target.value });
     this.clearValidationErr('gender');
+    console.log(e.target.value);
   }
 
   submitAdd(e) {
@@ -54,9 +60,8 @@ export default class AddBox extends React.Component {
       this.showValidationErr('error', 'Please fill required fields');
     }
 
-    console.log('Logging in!');
-    axios.post('http://localhost:8080/auth/Add', {}, { 
-        params: { name: this.state.name, birthyear: this.state.birthyear }}).then((response) => {
+    console.log('SUbmitting Data or SOmething!');
+    axios.post('http://localhost:8080/familytree/add', {fullName: this.state.name, birthYear: this.state.birthyear}).then((response) => {
       console.log(response);
     });
 
@@ -93,7 +98,7 @@ export default class AddBox extends React.Component {
           <div className="input-group">
           <span>
                 <label className="add-label" htmlFor="birthyear">Year of Birth</label>
-                <div class="divider"/>
+                <div className="divider"/>
                 <input
                 type="text"
                 name="birthyear"
@@ -107,7 +112,7 @@ export default class AddBox extends React.Component {
           <div className="input-group">
           <span>
                 <label className="add-label" htmlFor="deathyear">Year of Death</label>
-                <div class="divider"/>
+                <div className="divider"/>
                 <input
                 type="text"
                 name="deathyear"
@@ -121,7 +126,7 @@ export default class AddBox extends React.Component {
           <div className="input-group">
           <span>
                 <label className="add-label" htmlFor="occupation">Occupation</label>
-                <div class="divider"/>
+                <div className="divider"/>
                 <input
                 type="text"
                 name="occupation"
@@ -130,14 +135,28 @@ export default class AddBox extends React.Component {
                 onChange={this.onBirthYearChange.bind(this)}
                 /> 
             </span>
-            <form className="radio-label">
-              <input type="radio" id="male" name="gender" value="male"></input><div class="small-divider"/>
-              <label for="male"> Male</label><div class="divider"/>
-              <input type="radio" id="female" name="gender" value="female"></input><div class="small-divider"/>
-              <label for="female"> Female</label><div class="divider"/>
-              <input type="radio" id="other" name="gender" value="other"></input><div class="small-divider"/>
-              <label for="other"> Other</label><div class="divider"/>
-            </form> 
+
+            <span>
+              <label className="add-label" htmlFor="gender">Gender</label>
+              <ButtonGroup className = "gender-button-group">
+                <Button outline color="primary" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Male</Button>
+                <Button outline color="danger" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Female</Button>
+                <Button outline color="warning" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Other</Button>
+              </ButtonGroup>
+            </span>
+
+            <Form>
+              <FormGroup>
+                <Label for="exampleSelect">Associated Family</Label>
+                <Input type="select" name="select" id="exampleSelect">
+                  {
+                    this.state.options.map((value, key) => {
+                    return <option key={key}>{value}</option>;
+                    })
+                  }
+                </Input>
+              </FormGroup>
+            </Form>
             <small className="add-error">{error} </small>
           </div>
 

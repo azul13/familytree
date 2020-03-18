@@ -19,12 +19,12 @@ export default () => {
           <Nav navbar>
           <NavItem>
               <NavLink style={{ textAlign: 'center' }}>
-                <Link to="/homePage">Home</Link>
+                <Link to="/homePage" onClick={toggleNavbar}>Home</Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink style={{ textAlign: 'center' }}>
-                <Link to="/editPage">Edit Relatives</Link>
+                <Link to="/editPage" onClick={toggleNavbar}>Edit Relatives</Link>
               </NavLink>
             </NavItem>
             <NavItem>

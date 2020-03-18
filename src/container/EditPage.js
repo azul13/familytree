@@ -37,7 +37,7 @@ export default class EditPage extends Component{
               Delete
             </div>
           </div>
-          <div className="box-container">
+          <div className="edit-box-container">
             {this.state.isAddOpen && <AddBox />}
             {this.state.isDeleteOpen && <DeleteBox />}
           </div>

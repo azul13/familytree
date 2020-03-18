@@ -1,15 +1,26 @@
+.edit-box-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 40em;
+  min-width: 30em;
+  box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);
+  border-radius: 6px;
+  padding: 24px;
+}
+
 .add-label {
   font-family: Oxygen, sans-serif;
   font-size: 16px;
   padding-left: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  padding: 10px;
+
 }
 
 .add-input {
   height: 2.1em;
-  border-radius: 3px;
+  border-radius: 5px;
   float: right;
+  width: 23.9vw;
   border: 1px solid #70a1ff;
   transition: border 0.4s ease-out;
   padding: 13px;
@@ -81,7 +92,15 @@
 .radio-label {
   font-family: Oxygen, sans-serif;
   font-size: 16px;
-  margin: auto;
+  float: right;
+  /* margin: auto; */
   margin-top: 12px;
   
+}
+
+.gender-button-group {
+  padding: 10px;
+  /* margin: right; */
+  padding-right: 0px;
+  float: right;
 }

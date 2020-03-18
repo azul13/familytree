@@ -6,7 +6,8 @@ import './FamilyTree.css';
 export default() =>  {
 
     var width = 1080,
-        height = 720
+        height = 720,
+        ageScale = 3
 
     var t_text = "";
 
@@ -20,6 +21,7 @@ export default() =>  {
         .attr("width", width)
         .attr("height", height);
 
+    //Define force that will act upon nodes on screen
     var force = d3.layout.force()
         .gravity(0.05)
         .distance(100)
@@ -49,11 +51,10 @@ export default() =>  {
             .call(force.drag);
 
         node.append("circle")
-            //.attr("xlink:href", "https://github.com/favicon.ico")
             .attr("cx", 0)
             .attr("cy", 0)
             .attr("r", function (d) { 
-                if (d.gender === "male" || d.gender === "female") { return 24}
+                if (d.gender === "male" || d.gender === "female") { return ((calcAge(d.birthyear, d.deathyear)/ageScale) + ageScale)}
                 else { return 12}
             ;})
             .attr("stroke-width", 3)
@@ -69,19 +70,17 @@ export default() =>  {
             ;})
             .on("mouseover.tooltip", function(d){
                 if (d.birthyear !== undefined) {
-                    // tooltip.style("display", null)
                     d3.select(this).transition()
                         .duration('50')
-                        .attr('opacity', '.75');
+                        .attr('opacity', '.75')
                     tooltip.transition()
                         .duration(300)
-                        .style("opacity", 9);
-                    t_text = "<strong>" + titleCase(d.name) + 
-                        "</strong><br> " + d.birthyear + " - "
+                        .style("opacity", 9)
+                        t_text = "<strong>" + titleCase(d.name);
                     if (d.deathyear !== undefined) {
-                        t_text += d.deathyear;
+                        t_text += "</strong><br> " + d.birthyear + " - " + d.deathyear
                     } else {
-                        t_text += "<br>Occupation: " + d.occupation;
+                        t_text += "</strong><br> Age: " + (calcAge(d.birthyear)) + "<br>Occupation: " + d.occupation;
                     }
                     tooltip.html(t_text)
                         .style("left", (d3.event.pageX) + "px")
@@ -91,7 +90,6 @@ export default() =>  {
             })
             .on("mouseout.tooltip", function(d){
                 if (d.birthyear !== undefined) {
-                    //tooltip.style("display", "none")
                     d3.select(this).transition()
                     .duration('50')
                     .attr('opacity', '1');
@@ -116,9 +114,13 @@ export default() =>  {
             return str.join(' ');
         }
 
-        function calcAge(num) { 
+        //Calculate age using birthyear as parameter
+        function calcAge(birthyear, deathyear) {
             var currYear = new Date().getFullYear();
-            return (currYear - num);
+            if(deathyear !== undefined){
+                return (deathyear - birthyear);
+            }
+            return (currYear - birthyear);
         }
 
         node.append("text")
