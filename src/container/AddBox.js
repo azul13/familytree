@@ -8,7 +8,7 @@ export default class AddBox extends React.Component {
 
     this.state = { name: '', birthyear: '', deathyear: '', occupation: '', gender: '', errors: [] , options: [
       'Option 1', 'Option 2', 'Option 3', 'Option 4'
-    ], rSelected: ''};
+    ], activeSelected: 0}
   }
 
   showValidationErr(elm, msg) {
@@ -36,11 +36,13 @@ export default class AddBox extends React.Component {
   onBirthYearChange(e) {
     this.setState({ birthyear: e.target.value });
     this.clearValidationErr('birthyear');
+    console.log(e.target.value);
   }
 
   onDeathYearChange(e) {
     this.setState({ deathyear: e.target.value });
     this.clearValidationErr('deathyear');
+    console.log(e.target.value);
   }
 
   onOccupationChange(e) {
@@ -50,9 +52,11 @@ export default class AddBox extends React.Component {
   }
 
   onGenderChange(e) {
-    this.setState({ gender: e.target.value });
-    this.clearValidationErr('gender');
     console.log(e.target.value);
+    this.setState({ gender: e.target.value });
+    this.setState({ activeSelected: e.target.value});
+    this.clearValidationErr('gender');
+    
   }
 
   submitAdd(e) {
@@ -60,7 +64,7 @@ export default class AddBox extends React.Component {
       this.showValidationErr('error', 'Please fill required fields');
     }
 
-    console.log('SUbmitting Data or SOmething!');
+    console.log('Submitting Data or Something!');
     axios.post('http://localhost:8080/familytree/add', {fullName: this.state.name, birthYear: this.state.birthyear}).then((response) => {
       console.log(response);
     });
@@ -139,9 +143,9 @@ export default class AddBox extends React.Component {
             <span>
               <label className="add-label" htmlFor="gender">Gender</label>
               <ButtonGroup className = "gender-button-group">
-                <Button outline color="primary" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Male</Button>
-                <Button outline color="danger" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Female</Button>
-                <Button outline color="warning" style={{width: '8vw'}} onClick={this.onGenderChange.bind(this)}>Other</Button>
+                <Button outline color="primary" style={{width: '8vw'}} value = "male" onClick={this.onGenderChange.bind(this)} active={this.state.activeSelected === "male"}>Male</Button>
+                <Button outline color="danger" style={{width: '8vw'}} value = "female" onClick={this.onGenderChange.bind(this)} active={this.state.activeSelected === "female"}>Female</Button>
+                <Button outline color="warning" style={{width: '8vw'}} value = "other" onClick={this.onGenderChange.bind(this)} active={this.state.activeSelected === "other"}>Other</Button>
               </ButtonGroup>
             </span>
 

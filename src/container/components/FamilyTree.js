@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import * as d3 from 'd3'
 import graph from './obamatree'
 import './FamilyTree.css';
+import axios from 'axios';
+import 'babel-polyfill';
 
 export default() =>  {
 
@@ -28,9 +30,9 @@ export default() =>  {
         .charge(-220)
         .size([width, height]);
 
-    const invoked3 = () => {
-        const json = graph;
-
+    const invoked3 = async() => {
+        const json = await axios.get("http://localhost:8084/getFamilyTree").then((json)=>json.data);
+        console.log(json);
         force
             .nodes(json.nodes)
             .links(json.links)
@@ -69,7 +71,7 @@ export default() =>  {
                 else { return "black"}
             ;})
             .on("mouseover.tooltip", function(d){
-                if (d.birthyear !== undefined) {
+                if (d.birthyear !== 0) {
                     d3.select(this).transition()
                         .duration('50')
                         .attr('opacity', '.75')
@@ -77,10 +79,10 @@ export default() =>  {
                         .duration(300)
                         .style("opacity", 9)
                         t_text = "<strong>" + titleCase(d.name);
-                    if (d.deathyear !== undefined) {
+                    if (d.deathyear !== 0) {
                         t_text += "</strong><br> " + d.birthyear + " - " + d.deathyear
                     } else {
-                        t_text += "</strong><br> Age: " + (calcAge(d.birthyear)) + "<br>Occupation: " + d.occupation;
+                        t_text += "</strong><br> Age: " + (calcAge(d.birthyear, d.deathyear)) + "<br>Occupation: " + d.occupation;
                     }
                     tooltip.html(t_text)
                         .style("left", (d3.event.pageX) + "px")
@@ -89,7 +91,7 @@ export default() =>  {
                 }
             })
             .on("mouseout.tooltip", function(d){
-                if (d.birthyear !== undefined) {
+                if (d.birthyear !== 0) {
                     d3.select(this).transition()
                     .duration('50')
                     .attr('opacity', '1');
@@ -98,7 +100,7 @@ export default() =>  {
             })
             .on("mousemove.tooltip", function (d){
                 
-                if (d.birthyear !== undefined) {
+                if (d.birthyear !== 0) {
                     
                     tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
 
@@ -117,7 +119,7 @@ export default() =>  {
         //Calculate age using birthyear as parameter
         function calcAge(birthyear, deathyear) {
             var currYear = new Date().getFullYear();
-            if(deathyear !== undefined){
+            if(deathyear !== 0){
                 return (deathyear - birthyear);
             }
             return (currYear - birthyear);
@@ -141,8 +143,9 @@ export default() =>  {
         });
     };
 
+    invoked3();
 
-return <div id='chart'>{invoked3()}</div>
+    return <div id='chart'>{}</div>
 }
 
 
