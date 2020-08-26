@@ -7,7 +7,7 @@ export default class HomePage extends Component{
     constructor(props){
         super(props);
 
-        this.state = { isLoginOpen: true, isRegisterOpen: false, helloWorld: ''};
+        this.state = { isLoginOpen: true, isRegisterOpen: false};
     }
 
     showLoginBox() {
@@ -42,7 +42,7 @@ export default class HomePage extends Component{
             {this.state.isRegisterOpen && <RegisterBox />}
           </div>
         </div>
-        <div> <FamilyTree ></FamilyTree></div>
+        {/* <div> <FamilyTree ></FamilyTree></div> */}
         </div>
         );
     }

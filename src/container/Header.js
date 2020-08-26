@@ -2,11 +2,17 @@ import React, { Component, useState } from 'react';
 import './Header.css';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import {Link} from "react-router-dom";
+import { useAppContext } from "../libs/contextLib";
 
 export default () => {
   const [collapsed, setCollapsed] = useState(true);
+  const {isAuthenticated, userHasAuthenticated} = useAppContext();
 
   const toggleNavbar = () => setCollapsed(!collapsed);
+
+  function handleLogout() {
+    userHasAuthenticated(false);
+  }
 
   return (
     <div>
@@ -17,21 +23,30 @@ export default () => {
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
-          <NavItem>
+          {isAuthenticated
+          ? <NavItem>
               <NavLink style={{ textAlign: 'center' }}>
-                <Link to="/homePage" onClick={toggleNavbar}>Home</Link>
+                <Link to="/homePage" onClick={handleLogout}>Logout</Link>
               </NavLink>
             </NavItem>
+          : <>
             <NavItem>
-              <NavLink style={{ textAlign: 'center' }}>
-                <Link to="/editPage" onClick={toggleNavbar}>Edit Relatives</Link>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/" style={{ textAlign: 'center' }}>
-                Options
-              </NavLink>
-            </NavItem>
+                <NavLink style={{ textAlign: 'center' }}>
+                  <Link to="/homePage" onClick={toggleNavbar}>Home</Link>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink style={{ textAlign: 'center' }}>
+                  <Link to="/editPage" onClick={toggleNavbar}>Edit Relatives</Link>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/" style={{ textAlign: 'center' }}>
+                  Options
+                </NavLink>
+              </NavItem>
+              </>
+          }
           </Nav>
         </Collapse>
       </Navbar>

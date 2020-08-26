@@ -31,7 +31,7 @@ export default() =>  {
         .size([width, height]);
 
     const invoked3 = async() => {
-        const json = await axios.get("http://localhost:8084/getFamilyTree").then((json)=>json.data);
+        const json = await axios.get("http://localhost:8080/getFamilyTree").then((json)=>json.data);
         console.log(json);
         force
             .nodes(json.nodes)

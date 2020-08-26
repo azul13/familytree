@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './container/Header.js';
 import HomePage from './container/HomePage.js';
 import EditPage from './container/EditPage.js';
-import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
   Route 
-} from "react-router-dom"
+} from "react-router-dom";
 import './App.css';
+import { AppContext } from "./libs/contextLib";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
 
-  }
+function App() {
 
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+  
   // componentDidMount(){
   //   axios.get('http://localhost:8080/helloworld').then((Response) => {
   //     console.log(Response);
@@ -23,23 +22,23 @@ class App extends React.Component {
   //   }); 
   // }
 
-  render() {
     return (
-      <Router>
-      <div>
-        <Header />
-        <Switch>
-          <Route path="/homePage">
-            <HomePage />
-          </Route>
-          <Route path="/editPage">
-            <EditPage />
-          </Route>    
-        </Switch>
-      </div>
-      </Router>
+      <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
+        <Router>
+        <div>
+        <Header/>
+            <Switch>
+              <Route path="/homePage">
+                <HomePage />
+              </Route>
+              <Route path="/editPage">
+                <EditPage />
+              </Route>
+            </Switch>
+        </div>
+        </Router>
+      </AppContext.Provider>
     );
   }
-}
 
 export default App;

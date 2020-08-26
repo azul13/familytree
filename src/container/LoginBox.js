@@ -1,61 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { useAppContext } from "../libs/contextLib";
 
-export default class LoginBox extends React.Component {
-  constructor(props) {
-    super(props);
+export default function () {
 
-    this.state = { username: '', password: '', errors: [] };
+    const { userHasAuthenticated } = useAppContext();
+
+    const [username, setUsername] = useState('');
+
+    const[password, setPassword] = useState('');
+
+    const[errors, setErrors] = useState([]);
+
+    const error = false;
+
+
+  const showValidationErr = (elm, msg) => {
+    setErrors({ elm, msg });
   }
 
-  showValidationErr(elm, msg) {
-    this.setState(prevState => ({ errors: [...prevState.errors, { elm, msg }] }));
+  // const clearValidationErr = (elm) => {
+  //   this.setState(prevState => {
+  //     let newArr = [];
+  //     for (let err of prevState.errors) {
+  //       if (elm !== err.elm) {
+  //         newArr.push(err);
+  //       }
+  //     }
+  //     return { errors: newArr };
+  //   });
+  // }
+
+  const onUsernameChange = (e) => {
+    setUsername( e.target.value );
+    //this.clearValidationErr('username');
   }
 
-  clearValidationErr(elm) {
-    this.setState(prevState => {
-      let newArr = [];
-      for (let err of prevState.errors) {
-        if (elm !== err.elm) {
-          newArr.push(err);
+  const onPasswordChange = (e) => {
+    setPassword( e.target.value );
+    //this.clearValidationErr('password');
+  }
+
+  const submitLogin = (e) => {
+
+        for (let err of errors) {
+          if (err.elm === 'error') {
+          error = err.msg;
+          }
         }
+
+    axios.post('http://localhost:8080/auth/login', {}, { params: { username: username, password: password }}).then((response) => {
+      if (username === '' || password === '' || response.data === false) {
+        showValidationErr('error', 'Username or Password is incorrect!');
+        console.log('Not able to log in!');
+      }else {
+        //this.clearValidationErr('error');
+        userHasAuthenticated(true);
       }
-      return { errors: newArr };
-    });
-  }
-
-  onUsernameChange(e) {
-    this.setState({ username: e.target.value });
-    this.clearValidationErr('username');
-  }
-
-  onPasswordChange(e) {
-    this.setState({ password: e.target.value });
-    this.clearValidationErr('password');
-  }
-
-  submitLogin(e) {
-    if (this.state.username === '' || this.state.password === '') {
-      this.showValidationErr('error', 'Username or Password is incorrect!');
-    }
-
-    console.log('Logging in!');
-    axios.post('http://localhost:8080/auth/login', {}, { params: { username: this.state.username, password: this.state.password }}).then((response) => {
-      console.log(response);
+      
     });
 
   }
 
-  render() {
-    let error = false;
+  return (
 
-    for (let err of this.state.errors) {
-      if (err.elm === 'error') {
-        error = err.msg;
-      }
-    }
-
-    return (
       <div className="inner-container">
         <div className="header">Login</div>
         <div className="box">
@@ -66,10 +74,9 @@ export default class LoginBox extends React.Component {
               name="username"
               className="login-input"
               placeholder="Username"
-              onChange={this.onUsernameChange.bind(this)}
+              onChange={onUsernameChange}
             />
           </div>
-
           <div className="input-group">
             <label htmlFor="password">Password</label>
             <input
@@ -77,16 +84,15 @@ export default class LoginBox extends React.Component {
               name="password"
               className="login-input"
               placeholder="Password"
-              onChange={this.onPasswordChange.bind(this)}
+              onChange={onPasswordChange}
             />
             <small className="danger-error">{error} </small>
           </div>
 
-          <button type="button" className="login-btn" onClick={this.submitLogin.bind(this)}>
+          <button type="button" className="login-btn" onClick={submitLogin}>
             Login
           </button>
         </div>
       </div>
-    );
-  }
+  );
 }
